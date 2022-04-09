@@ -13,8 +13,8 @@
 <meta property="og:site_name" content="Leo&#39;s Blog!">
 <meta property="og:description" content="Imagine this senario, you need a lot of pictures and&#x2F;or important files stored someplace locally, and you want to access it through every computer&#x2F;phone, but all of your storage is full, how do you">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-04-09T09:05:42.000Z">
-<meta property="article:modified_time" content="2022-04-09T09:10:00.043Z">
+<meta property="article:published_time" content="2022-04-09T11:20:00.000Z">
+<meta property="article:modified_time" content="2022-04-09T11:53:06.841Z">
 <meta property="article:author" content="Leodeng">
 <meta name="twitter:card" content="summary">
     
@@ -163,7 +163,7 @@
       </span>
       
     <div class="postdate">
-        <time datetime="2022-04-09T09:05:42.000Z" itemprop="datePublished">2022-04-09</time>
+        <time datetime="2022-04-09T11:20:00.000Z" itemprop="datePublished">2022-04-09</time>
     </div>
 
 
@@ -180,10 +180,10 @@
   
 <p><strong>Step 1: Getting the components</strong><br><br><br>First, you need these components, some are needed and some are optional:<br><br></p>
 <ul>
-<li>1. Raspberry Pi 4B / 2G RAM: $35 Dollars ¥223 Yuan <br>(You can buy the 4G and 8G version, but it's more pricey)
+<li>1. Raspberry Pi 4B / 2G RAM: $35 Dollars ¥223 Yuan <br>(You can buy the 4G and 8G version, but it's more pricey)<br><br>
   
 <li>2. Case for Raspberry Pi (Optional)<br> (If you are a geek, you can 3D print one like I did, anyways,<a href="files/Raspberry-Pi-Case-Files.zip" download>here it is</a>.)<br><br>
- (Credit to Michael Klements for designing and making the case)<br>
+ (Credit to Michael Klements for designing and making the case)<br><br>
   
 <li>3. Micro SD Card (Sandisk 32 GB here) 14 Dollars/89 RMB (This is for system installation, or if you only have a few files, using a 32 gigabyte sd card would be fine.)<br><br>
   
@@ -192,9 +192,63 @@
 <li>5. I2C display (Optional if you want the case)<br><br>
                 
 <li>6. 3.3V Fan (Optional if you want the case)<br><br><br><br>
-            
-            
 
+
+<p><strong>Step 2. Installing the Raspberry Pi OS</strong><br><br></p>
+<ul>
+<li>1.Download the Raspberry Pi OS from <a target="_blank" rel="noopener" href="https://www.raspberrypi.org/software/operating-systems/" download>here</a>.
+<br>If you want a GUI Graphical Desktop to do gui applications, you can download the full version, but if you want it to be a lighter system and run more smoothly as a NAS server, use the lite version of the OS.<br><br>
+
+<li>2. Open Win32DiskImager and choose the image and transfer it to the Micro SD card <strong>OR</strong> use Etcher on mac and Rufus on windows, same steps.<br><br>
+
+<li>3. Plug the Micro SD card into the raspberry pi and start it.<br><br><br><br>
+
+
+<p><strong>Step 3. Commands for the SMB Server</strong><br><br></p>
+<ul>
+  
+<li>1. Open a terminal and enter this command, this command installs the samba module which is used to create the SMB server
+`
+$ sudo apt-get install samba
+`
+<br><br>
+
+
+<li>2. After the necessary installation, use nano or vim to edit this file:
+`
+$ sudo nano /etc/samba/smb.conf
+`
+or 
+`
+$ sudo vim /etc/samba/smb.conf
+`
+<br><br>
+
+<li>3. Write these lines of code at the end of the file,
+  Inside the top big braclet"[]", you should write your NAS Share name there without spaces, e.g admins-nas-share, Nas-share
+The path should be the folder you want to share (Must be created) e.g /home/pi/NAS-SHARE. <br>
+  
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[Your NAS Share Name (No Spaces)]</span><br><span class="line">	path = /Your/path/to/the/folder</span><br><span class="line">	writeable=Yes</span><br><span class="line">	create mask=0777</span><br><span class="line">	directory mask=0777</span><br><span class="line">	public=no</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><br><br></p>
+<li>4. Create an account on samba with your Raspberry Pi username, After the terminal prompts you for an password, enter your desired password for samba.
+  
+<p><code>$ smbpasswd -a (your raspberry pi user account)</code><br><br><br></p>
+<li>5. Restart the samba service 
+  
+<p><code>$ sudo systemctl restart smb</code><br><br><br></p>
+<li>6. Connect to your file-sharing service
+  <p>
+    Mac OS:<br><br>
+    Go to the "Finder Menu bar"
+    ![Finder Menu Bar](/images/finder-menu-bar.png)<br>
+    Click "Go" and click "Connect to server"
+    ![Connect to server](/images/connect-to-server.png)<br>
+    After that, enter your NAS server's ip address and your NAS share name and click "Connect"
+    ![Connect to Server ip and name](/images/connect-samba-ip.png)<br>
+    Click on our server and enter the <b>samba</b> credentials<br><br>
+    Now you are done!<br> Access all of your saved files, images, videos on the server!
+    
+  </p>
   </div>
 </article>
 
