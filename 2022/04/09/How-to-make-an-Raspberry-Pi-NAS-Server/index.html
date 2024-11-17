@@ -116,8 +116,6 @@
           <li><a href="/Projects/">Projects</a></li>
          
           <li><a href="/Games/">Games</a></li>
-         
-          <li><a href="/ezCite/">ezCite</a></li>
         
       </ul>
     </span>
@@ -189,7 +187,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/css/lightgallery.min.css" /><div class=".article-gallery"><p>
  Imagine this senario, you need a lot of pictures and/or important files stored someplace locally, and you want to access it through every computer/phone, but all of your storage is full, how do you store those pictures/files?<br>
             Well, the Raspberry pi can be a great soulution. The Raspberry Pi uses a lot less power than a regular NAS server, and it's pretty cheap and easy to setup. So here's how to make it...<br><br><br>
   
@@ -257,20 +255,25 @@ The path should be the folder you want to share (Must be created) e.g /home/pi/N
   <p>
     Mac OS:<br><br>
     Go to the "Finder Menu bar"
-    <img src="/images/finder-menu-bar.png"  alt="Finder Menu Bar" /> <br>
+    <a href="/images/finder-menu-bar.png" title="Finder Menu Bar" class="gallery-item"><img src="/images/finder-menu-bar.png"  alt="Finder Menu Bar" /></a> <br>
     Click "Go" and click "Connect to server"
-     <img src="/images/connect-to-server.png"  alt="Connect to server" /> <br>
+     <a href="/images/connect-to-server.png" title="Connect to server" class="gallery-item"><img src="/images/connect-to-server.png"  alt="Connect to server" /></a> <br>
     After that, enter your NAS server's ip address and your NAS share name and click "Connect"
-    <img src="/images/connect-samba-ip.png"  alt="Connect to Server ip and name" /><br>
+    <a href="/images/connect-samba-ip.png" title="Connect to Server ip and name" class="gallery-item"><img src="/images/connect-samba-ip.png"  alt="Connect to Server ip and name" /></a><br>
     Click on your server and enter the <b>samba</b> credentials<br><br>
     Now you are done!<br> Access all of your saved files, images, videos on the server!<br>
     Here's a showcase of the server:
-    <img src="\images\showcase1.jpg"  alt="Showcase Server 1" /><br>
-     <img src="/images/showcase2.jpg"  alt="Showcase Server 2" /><br>
-     <img src="/images/showcase3.jpg"  alt="Showcase Server 3" /><br>
+    <a href="\images\showcase1.jpg" title="Showcase Server 1" class="gallery-item"><img src="\images\showcase1.jpg"  alt="Showcase Server 1" /></a><br>
+     <a href="/images/showcase2.jpg" title="Showcase Server 2" class="gallery-item"><img src="/images/showcase2.jpg"  alt="Showcase Server 2" /></a><br>
+     <a href="/images/showcase3.jpg" title="Showcase Server 3" class="gallery-item"><img src="/images/showcase3.jpg"  alt="Showcase Server 3" /></a><br>
 
 <p>Now Doesn’t that look good? :3 <br>Bye!</p>
-  </p>
+  </p></div><script src="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script>
   </div>
 </article>
 
@@ -315,8 +318,6 @@ The path should be the folder you want to share (Must be created) e.g /home/pi/N
           <li><a href="/Projects/">Projects</a></li>
          
           <li><a href="/Games/">Games</a></li>
-         
-          <li><a href="/ezCite/">ezCite</a></li>
         
       </ul>
     </div>
@@ -373,8 +374,6 @@ The path should be the folder you want to share (Must be created) e.g /home/pi/N
           <li><a href="/Projects/">Projects</a></li>
          
           <li><a href="/Games/">Games</a></li>
-         
-          <li><a href="/ezCite/">ezCite</a></li>
         
       </ul>
     </nav>

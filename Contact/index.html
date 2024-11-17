@@ -122,8 +122,6 @@
         <li><a href="/Projects/">Projects</a></li>
        
         <li><a href="/Games/">Games</a></li>
-       
-        <li><a href="/ezCite/">ezCite</a></li>
       
     </ul>
   </div>
@@ -134,7 +132,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <head>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/css/lightgallery.min.css" /><div class=".article-gallery"><head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
  <style>
@@ -186,12 +184,17 @@
 </head>
 Contact me at:<br><br>
 
-<p><img src="/images/discordnametag.png" alt="DiscordNameTag" width="" height=""><br><br></p>
+<p><a href="/images/discordnametag.png" title="DiscordNameTag" class="gallery-item"><img src="/images/discordnametag.png" alt="DiscordNameTag" width="" height=""></a><br><br></p>
 <p><a target="_blank" rel="noopener" href="https://twitter.com/Leodeng14" class="fa fa-twitter"></a><br></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/leodenglovescode" class="fa fa-github"></a><br></p>
 <p><a target="_blank" rel="noopener" href="https://www.youtube.com/channel/UCz_yV9xFNZhoaVQz4wy922A" class="fa fa-youtube"></a><br></p>
 <p><a target="_blank" rel="noopener" href="https://stackoverflow.com/users/15071302/leodeng" class="fa fa-stack-overflow"></a><br></p>
-
+</div><script src="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script>
   </div>
 </article>
 
@@ -216,8 +219,6 @@ Contact me at:<br><br>
           <li><a href="/Projects/">Projects</a></li>
          
           <li><a href="/Games/">Games</a></li>
-         
-          <li><a href="/ezCite/">ezCite</a></li>
         
       </ul>
     </nav>
